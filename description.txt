@@ -1,0 +1,31 @@
+----------------------------------------- Part 1
+
+https://youtu.be/pwcpXge3dEA
+
+npx create-react-app ecomers-from-tomkovich
+
+npm install -g yarn
+
+yarn add react-router-dom @reduxjs/toolkit axios
+
+dellete folder src
+create folder src
+in src create index.js
+in src create folder components
+in src/components create folder App
+in src/components/App create file App.jsx
+
+yarn start
+
+
+
+
+
+
+
+00 : 34 : 30
+
+
+
+
+
