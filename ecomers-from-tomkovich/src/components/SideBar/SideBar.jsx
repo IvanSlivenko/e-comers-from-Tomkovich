@@ -28,21 +28,21 @@ const SideBar = () => {
         <ul className={styles.menu}>
           {/*  Вивід категорій з Какстомними данними*/}
           {/* ------------------------------------------------------------- */}
-          {/* {categori_list.map(({ id, name })=>(
-            <li key={id}>
-            <NavLink 
-            className={({ isActive })=> `${styles.link} ${isActive ? styles.active:""}`}
-            to={`/categoris/${id}`}>{name}</NavLink>
-          </li>
-          ))} */}
-          {/* ------------------------------------------------------------ */}
-          {list.map(({ id, name })=>(
+          {categori_list.map(({ id, name })=>(
             <li key={id}>
             <NavLink 
             className={({ isActive })=> `${styles.link} ${isActive ? styles.active:""}`}
             to={`/categoris/${id}`}>{name}</NavLink>
           </li>
           ))}
+          {/* ------------------------------------------------------------ */}
+          {/* {list.map(({ id, name })=>(
+            <li key={id}>
+            <NavLink 
+            className={({ isActive })=> `${styles.link} ${isActive ? styles.active:""}`}
+            to={`/categoris/${id}`}>{name}</NavLink>
+          </li>
+          ))} */}
           {/* ------------------------------------------------------------- */}
         </ul>
       </nav>
