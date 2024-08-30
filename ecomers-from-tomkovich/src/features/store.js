@@ -2,11 +2,12 @@
 
 
 import { configureStore } from '@reduxjs/toolkit'
-import rootReducer from './reducers'
+import categoriesSlise from './categories/categoriesSlise'
+// import rootReducer from './reducers'
 
 export const store =  configureStore({
   reducer: {
-    categories: "cat",
+    categories: categoriesSlise,
   },
   devTools: true,
   
