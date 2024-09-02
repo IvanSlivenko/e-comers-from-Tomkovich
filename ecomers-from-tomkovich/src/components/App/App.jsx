@@ -8,6 +8,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SideBar from "../SideBar/SideBar";
 import { getCategories } from "../../features/categories/categoriesSlise";
+import { getProducts } from "../../features/products/productSlice";
 
 
 const App = ()=>{
@@ -15,6 +16,7 @@ const App = ()=>{
      
      useEffect(()=>{
           dispatch(getCategories());
+          dispatch(getProducts());
      },[dispatch]);
 
 
