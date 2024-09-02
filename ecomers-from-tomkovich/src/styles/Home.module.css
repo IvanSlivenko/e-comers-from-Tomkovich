@@ -1,4 +1,7 @@
 .home {
+  height: 100%;
+  padding-top: 1rem;
+  width: 100%;
   position: relative;
   flex-grow: 1;
 }
@@ -10,6 +13,9 @@
   text-transform: uppercase;
   color: var(--bg);
   text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  
 }
 
 .product {
@@ -126,5 +132,8 @@
 .discount span {
   color: var(--violet);
   font-weight: 700;
+}
+.button{
+  margin-top: 200px;
 }
 
