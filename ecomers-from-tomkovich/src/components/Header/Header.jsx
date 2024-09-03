@@ -7,6 +7,7 @@ import { ROUTES } from '../../utils/routes'
 
 import LOGO from '../../images/logo.svg'
 import LOGO2 from '../../images/logo2.jfif'
+import LOGO3 from '../../images/logo_3.jpg'
 import AVATAR from '../../images/avatar.jpg'
 
 const Header = () => {
@@ -14,7 +15,7 @@ const Header = () => {
     <div className={styles.header}>
         <div className={styles.logo}>
             <Link to={ROUTES.HOME}>
-                <img className={styles.logo_image} src={LOGO2} alt="Logo" />
+                <img className={styles.logo_image} src={LOGO3} alt="Logo" />
             </Link>
         </div>
         <div className={styles.info}>

@@ -5,7 +5,7 @@ import styles from '../../styles/Home.module.css'
 
 import BG from '../../images/computer.png'
 
-const Poster = () => {
+const PosterCustome = () => {
     return(
         <section className={styles.home}>
             <div className={styles.title} 
@@ -36,4 +36,4 @@ const Poster = () => {
         </section>
     )
 }
-export default Poster
+export default PosterCustome

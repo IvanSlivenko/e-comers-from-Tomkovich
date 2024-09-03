@@ -5,6 +5,7 @@ import styles from '../../styles/Sidebar.module.css'
 
 
 import { categori_list } from '../../custome_data/custome_data.js'
+import { custome_categories } from '../../custome_data/custome_categories.js'
 
 
 
@@ -26,17 +27,13 @@ const SideBar = () => {
         </div>
       <nav>
         <ul className={styles.menu}>
+          
+          {/* categori_list */}
+          {/* custome_categories */}
           {/*  Вивід категорій з Какстомними данними*/}
-          {/* ------------------------------------------------------------- */}
-          {/* {categori_list.map(({ id, name })=>(
-            <li key={id}>
-            <NavLink 
-            className={({ isActive })=> `${styles.link} ${isActive ? styles.active:""}`}
-            to={`/categoris/${id}`}>{name}</NavLink>
-          </li>
-          ))} */}
           {/* ------------------------------------------------------------ */}
-          {list.map(({ id, name })=>(
+          {/* list */}
+          {custome_categories.map(({ id, name })=>(
             <li key={id}>
             <NavLink 
             className={({ isActive })=> `${styles.link} ${isActive ? styles.active:""}`}

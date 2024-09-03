@@ -7,7 +7,7 @@ import styles from "../../styles/Products.module.css"
 import { CustomeApyDate } from '../../custome_data/custome_ApyData.js'
 
 
-const Products = ({ title, style={},  products=[], amount }) => {
+const FilteredProducts = ({ title, style={},  products=[], amount }) => {
 
 
     // const list = products.filter((_, i) => i < amount);
@@ -15,6 +15,8 @@ const Products = ({ title, style={},  products=[], amount }) => {
     {/* products */}
     {/* CustomeApyDate */}
     const list = CustomeApyDate.filter((_, i) => i < amount);
+    const customePayload=800
+    const list_filtered = list.filter(({price})=> price < customePayload)
     
     return (
     <section className={styles.products} style={style}>
@@ -23,7 +25,7 @@ const Products = ({ title, style={},  products=[], amount }) => {
         <div className={styles.list}>
 
         
-        {list.map(({ id, images, title, category: { name: cat }, price})=>(
+        {list_filtered.map(({ id, images, title, category: { name: cat }, price})=>(
 
               <Link to={`/products/${id}`} key={id} className={styles.product}>
                 <div
@@ -55,4 +57,4 @@ const Products = ({ title, style={},  products=[], amount }) => {
   );
 };
 
-export default Products
+export default FilteredProducts
