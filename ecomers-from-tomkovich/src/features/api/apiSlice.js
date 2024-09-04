@@ -9,7 +9,7 @@ export const apiSlice = createApi({
     tagTypes: ['Product'],
     endpoints: (builder)=>({
         getProduct: builder.query({
-            query: ({ id })=> `/product/${id}`,
+            query: ({ id })=> `/products/${id}`,
             providesTags: ['Product'],
         })
     })
