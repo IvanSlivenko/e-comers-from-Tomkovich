@@ -16,7 +16,7 @@ const FilteredProducts = ({ title, style={},  products=[], amount }) => {
     {/* CustomeApyDate */}
     const list = CustomeApyDate.filter((_, i) => i < amount);
     const customePayload=800
-    const list_filtered = list.filter(({price})=> price < customePayload)
+    const list_filtered = CustomeApyDate.filter(({price})=> price < customePayload)
     
     return (
     <section className={styles.products} style={style}>
