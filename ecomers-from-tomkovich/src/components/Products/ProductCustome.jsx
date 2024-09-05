@@ -1,26 +1,21 @@
-import React, { useEffect, useState } from 'react'
 import styles from "../../styles/Product.module.css"
-import imgCart from '../../images/banner_urk.jpg'
-import { CustomeImgList } from '../../custome_data/custome_img_list'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ROUTES }from '../../utils/routes'
+import { ROUTES }from '../../utils/routes.js'
 
 
 
-const Product = ({ price, title, images, description }) => {
+const ProductCustome = ({ price, title, images, description }) => {
 
 const SIZES = [4, 4.5, 5]    
 
-// images
-// CustomeImgList  
-// const currentImage = CustomeImgList[0]
-
+// const currentImage = images[0]
   const [currentImage, setCurentImage]  = useState();
   const [currentSize, setCurentSize]  = useState();
   useEffect(()=>{
     if(!images.length) return;
      
-    setCurentImage(CustomeImgList[0])
+    setCurentImage(images[0])
   },[images])
     
   return (
@@ -30,9 +25,7 @@ const SIZES = [4, 4.5, 5]
             style={{backgroundImage: `url(${currentImage})`}}
             />
             <div className={styles['images-list']}>
-            {/* images */}
-            {/* CustomeImgList */}
-            {CustomeImgList.map((image, i)=>(
+            {images.map((image, i)=>(
                  <div
                  key={i} 
                  className={styles.image}
@@ -63,7 +56,7 @@ const SIZES = [4, 4.5, 5]
             <p className={styles.description}>{description}</p>
 
             <div className={styles.actions}>
-                <button className={styles.add}  disabled={!currentSize}>Add to cart</button>
+                <button className={styles.add} disabled={!currentSize}>Add to cart</button>
                 <button className={styles.favorite} >Add to favorites</button>
             </div>
             <div className={styles.bottom}>
@@ -78,4 +71,4 @@ const SIZES = [4, 4.5, 5]
   )
 }
 
-export default Product
+export default ProductCustome

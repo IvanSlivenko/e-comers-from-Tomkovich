@@ -5,20 +5,26 @@ import { Link } from 'react-router-dom'
 import styles from "../../styles/Products.module.css"
 
 import { CustomeApyDate } from '../../custome_data/custome_ApyData.js'
+import { CustomeImgList } from '../../custome_data/custome_img_list.js'
 
-import imgCart from '../../images/banner_urk.jpg'
+
 
 
 
 const Products = ({ title, style={},  products=[], amount }) => {
 
+// {/* -------------------------------------------------------------------- */}
+    const  productsList = products
+    // const  productsList = CustomeApyDate
+// {/* -------------------------------------------------------------------- */}
 
-    // const list = products.filter((_, i) => i < amount);
-    // -----------------------------------------------------
-    {/* products */}
-    {/* CustomeApyDate */}
-    const list = products.filter((_, i) => i < amount);
-    
+    const list = productsList.filter((_, i) => i < amount);
+
+    function createrandomNumbername() {
+        return Math.floor(Math.random() * 6);
+    }
+
+    const randomNumber = Math.floor(Math.random() * 6);
     return (
     <section className={styles.products} style={style}>
         {title && <h2>{title}</h2>}
@@ -29,16 +35,19 @@ const Products = ({ title, style={},  products=[], amount }) => {
         {list.map(({ id, images, title, category: { name: cat }, price})=>(
 
               <Link to={`/products/${id}`} key={id} className={styles.product}>
-                <div
-                className={styles.image}
-
-                // style={{ backgroundImage: `url(${images[0]})` }}
-                style={{ backgroundImage: `url(${imgCart})` }}
-
-                />   
-
 
                 
+                <div
+                className={styles.image}
+    // {/* -------------------------------------------------------------------- */}
+                // style={{ backgroundImage: `url(${images[0]})` }}
+
+                    style={{ backgroundImage: `url(${CustomeImgList[createrandomNumbername()]})`}}
+    // {/* ------------------------------------------------------------- */}
+                />  
+
+
+               
                 <div className={styles.wrapper}>
                   <h3 className={styles.title}>{title}</h3>
                   <div className={styles.cat}>{cat}</div>
