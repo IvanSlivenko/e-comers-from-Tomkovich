@@ -1,15 +1,22 @@
 import styles from "../../styles/Product.module.css"
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { ROUTES }from '../../utils/routes.js'
+import { addItemToCart } from '../../features/user/userSlice';
 
 
 
-const ProductCustome = ({ price, title, images, description }) => {
+const ProductCustome = (item) => {
+
+const  { price, title, images, description } = item;   
 
 const SIZES = [4, 4.5, 5]    
 
 // const currentImage = images[0]
+
+  const dispatch = useDispatch();
+
   const [currentImage, setCurentImage]  = useState();
   const [currentSize, setCurentSize]  = useState();
   useEffect(()=>{
@@ -17,6 +24,10 @@ const SIZES = [4, 4.5, 5]
      
     setCurentImage(images[0])
   },[images])
+
+  const addToCart = ()=>{
+    dispatch(addItemToCart(item))
+  }
     
   return (
     <section className={styles.product}>
@@ -56,7 +67,7 @@ const SIZES = [4, 4.5, 5]
             <p className={styles.description}>{description}</p>
 
             <div className={styles.actions}>
-                <button className={styles.add} disabled={!currentSize}>Add to cart</button>
+                <button onClick={addToCart} className={styles.add} disabled={!currentSize}>Add to cart</button>
                 <button className={styles.favorite} >Add to favorites</button>
             </div>
             <div className={styles.bottom}>

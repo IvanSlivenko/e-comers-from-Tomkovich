@@ -11,7 +11,6 @@ import { custome_categories } from '../../custome_data/custome_categories.js'
 
 const SideBar = () => {
   const { list } = useSelector(({ categories })=> categories)
-  console.log('list', list);
   
   return (
     <section className={styles.sidebar}>
