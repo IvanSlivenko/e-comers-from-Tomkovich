@@ -12,13 +12,21 @@ import LOGO2 from '../../images/logo2.jfif'
 import LOGO3 from '../../images/logo_3.jpg'
 import AVATAR from '../../images/avatar.jpg'
 import { toggleForm } from '../../features/user/userSlice';
+import { useGetProductsQuery } from '../../features/api/apiSlice';
 
 const Header = () => {
+  const [searchValue, setSearchValue] = useState("");  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {currentUser} = useSelector(({ user })=> user)
   
   const [values, setValues] = useState({ name: "Guest", avatar: AVATAR })
+
+  const{ data, isLoading } = useGetProductsQuery({title: searchValue});
+  
+  console.log(data);
+
+  
 
         useEffect(()=>{
             if(!currentUser) return;
@@ -31,6 +39,10 @@ const Header = () => {
     else navigate(ROUTES.PROFILE)
     
 
+  }
+
+  const handleSearch = ({target: { value }})=>{
+    setSearchValue(value)
   }
   
   return (
@@ -60,8 +72,8 @@ const Header = () => {
                         name='search'
                         placeholder='Щось шукаєте...'
                         autoComplete='off'
-                        onChange={()=>{}}
-                        value=""
+                        onChange={handleSearch}
+                        value={searchValue}
 
                     />
 
