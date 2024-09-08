@@ -38,7 +38,7 @@ const UserLoginForm = ({ closeForm, toggleCurrentFormType }) => {
         </div>
 
         <div className={styles.title} >
-                Login
+                Log In
         </div>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.group} >
