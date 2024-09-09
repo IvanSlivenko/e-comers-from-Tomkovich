@@ -11,8 +11,15 @@ import LOGO from '../../images/logo.svg'
 import LOGO2 from '../../images/logo2.jfif'
 import LOGO3 from '../../images/logo_3.jpg'
 import AVATAR from '../../images/avatar.jpg'
+import { CustomeImgList } from '../../custome_data/custome_img_list.js'
+
 import { toggleForm } from '../../features/user/userSlice';
 import { useGetProductsQuery } from '../../features/api/apiSlice';
+import { useGetProductsCustomeQuery } from '../../features/api/apiSliceСustome';
+import { createrandomNumbername } from '../../utils/common.js'
+import { getCurrentProduct } from '../../utils/common.js';
+import { CustomeApyDate } from '../../custome_data/custome_ApyData.js'
+
 
 const Header = () => {
   const [searchValue, setSearchValue] = useState("");  
@@ -22,11 +29,12 @@ const Header = () => {
   
   const [values, setValues] = useState({ name: "Guest", avatar: AVATAR })
 
-  const{ data, isLoading } = useGetProductsQuery({title: searchValue});
-  
-  console.log(data);
+//   const{ data, isLoading } = useGetProductsQuery({title: searchValue});
+//   const{ data, isLoading } = useGetProductsCustomeQuery({title: searchValue});
 
-  
+ 
+  const list_search = CustomeApyDate.filter(({title})=> title.toLowerCase().includes(searchValue))
+  const isLoading = false;
 
         useEffect(()=>{
             if(!currentUser) return;
@@ -78,8 +86,32 @@ const Header = () => {
                     />
 
                 </div>
-                {false && <div className={styles.box}>
-                    miniGalery
+                {searchValue && <div className={styles.box}>
+                    {isLoading ? 'loading' : !list_search.length ? "No results" : (
+                        // data
+                        // list_search
+                        list_search. map(({title, images, id, price }) => {
+                            return (
+                                <Link
+                                    key={id} 
+                                    onClick={()=>setSearchValue("")} 
+                                    className={styles.item} to={`/products/${id}`}>
+                                    
+                                    <div className={styles.image}
+                                        style={{ backgroundImage: `url(${CustomeImgList[createrandomNumbername()]})`}}
+                                    />
+                                    <div className={styles.title}>
+                                        {title}
+
+                                    </div>
+                                    <div className={styles.price}>{price} грн.</div>
+    
+                                    
+                                </Link>
+                            )
+
+                        }
+                    ))}
 
                 </div>}
             </form>

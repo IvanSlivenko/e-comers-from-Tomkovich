@@ -19,6 +19,7 @@ const SIZES = [4, 4.5, 5]
 
   const [currentImage, setCurentImage]  = useState();
   const [currentSize, setCurentSize]  = useState();
+  
   useEffect(()=>{
     if(!images.length) return;
      

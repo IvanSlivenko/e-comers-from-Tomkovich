@@ -42,7 +42,7 @@ const SIZES = [4, 4.5, 5]
             <div className={styles['images-list']}>
             {/* images */}
             {/* CustomeImgList */}
-            {CustomeImgList.map((image, i)=>(
+            {images.map((image, i)=>(
                  <div
                  key={i} 
                  className={styles.image}
