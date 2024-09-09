@@ -22,37 +22,37 @@ const FilteredProducts = ({ title, style={},  products=[], amount }) => {
     <section className={styles.products} style={style}>
         {title && <h2>{title}</h2>}
 
-        <div className={styles.list}>
+            <div className={styles.list}>
 
-        
-        {list_filtered.map(({ id, images, title, category: { name: cat }, price})=>(
+            
+                {list_filtered.map(({ id, images, title, category: { name: cat }, price})=>(
 
-              <Link to={`/products/${id}`} key={id} className={styles.product}>
-                <div
-                className={styles.image}
+                <Link to={`/products/${id}`} key={id} className={styles.product}>
+                    <div
+                    className={styles.image}
 
-                style={{ backgroundImage: `url(${images[0]})` }}
+                    style={{ backgroundImage: `url(${images[0]})` }}
 
-                />   
+                    />   
 
 
-                
-                <div className={styles.wrapper}>
-                  <h3 className={styles.title}>{title}</h3>
-                  <div className={styles.cat}>{cat}</div>
-                  <div className={styles.info}>
-                      <div className={styles.pices}>
-                          <div className={styles.price}>{price} грн.</div>
-                          <div className={styles.oldPrice}>{Math.floor(price * 0.8)} грн.</div>
-                      </div>
-                      <div className={styles.purchases}>
-                          {Math.floor(Math.random() * 20 + 1)} вже придбали
-                      </div>
-                  </div>
-                </div>
-                </Link>
-            ))}
-        </div>
+                    
+                    <div className={styles.wrapper}>
+                    <h3 className={styles.title}>{title}</h3>
+                    <div className={styles.cat}>{cat}</div>
+                    <div className={styles.info}>
+                        <div className={styles.pices}>
+                            <div className={styles.price}>{price} грн.</div>
+                            <div className={styles.oldPrice}>{Math.floor(price * 0.8)} грн.</div>
+                        </div>
+                        <div className={styles.purchases}>
+                            {Math.floor(Math.random() * 20 + 1)} вже придбали
+                        </div>
+                    </div>
+                    </div>
+                    </Link>
+                ))}
+            </div>
     </section>
   );
 };

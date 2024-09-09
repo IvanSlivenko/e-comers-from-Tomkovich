@@ -79,5 +79,21 @@ export const CustomeApyDate=[
       "https://img.freepik.com/free-photo/medium-shot-smiley-man-with-ukranian-shirt_23-2149318749.jpg"
     ]
   },
+  {
+    "id": 6,
+    "title": "Product 6",
+    "price": 1500,
+    "description": "Andy shoes are designed to keeping in...",
+    "category": {
+      "id": 2,
+      "name": "Етнічне взуття українців",
+      "image": "https://khersonci.com.ua/images/NEWS/05.2020/b30aac0e4576cca978193539a98e4744.jpg"
+    },
+    "images": [
+      "https://etnosvit.com.ua/upload/mod_shop/181_47/5615l.jpg",
+      "https://histrov.com/wp-content/uploads/2023/10/2898dbef402ed44413ccb430c63d55d7.jpg",
+      "https://discover.in.ua/uploads/illustrations/mini/%D0%9F%D0%BE%D1%81%D1%82%D0%BE%D0%BB%D0%B8-1200-670.jpg"
+    ]
+  },
   // ...
 ]

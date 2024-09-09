@@ -15,7 +15,6 @@ export const createrandomNumbername = () => {
 }
 
 export const getCurrentProduct = (id, CustomeDate) => {
-    console.log(CustomeDate,'-------------------CustomeDate');
     if (!CustomeDate || CustomeDate.length === 0) {
         // Перевіряємо, чи існує CustomeApyDate і чи він не порожній
         console.error("CustomeApyDate is not defined or empty");

@@ -17,7 +17,7 @@ const SIZES = [4, 4.5, 5]
 
   const dispatch = useDispatch();
 
-  const [currentImage, setCurentImage]  = useState();
+  const [currentImage, setCurentImage]  = useState(images[0]);
   const [currentSize, setCurentSize]  = useState();
   
   useEffect(()=>{
