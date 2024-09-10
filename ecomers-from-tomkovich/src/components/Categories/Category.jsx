@@ -18,14 +18,27 @@ const Category = ({ title, style={} }) => {
 
   const defaultParams = {
     categoryId: id,
+    limit: 5,
+    offset: 0,
     ...defaultValues,
   };
 
   
-  const [cat, setCat] = useState('')
+  const [cat, setCat] = useState('');
+  const [ items, setItems] = useState([]);
   const [values, setValues] = useState(defaultValues);
   const [params, setParams] = useState(defaultParams);
   const [data, setData] = useState([]);
+
+    useEffect(()=>{
+      if(isLoading || !data.length) return;
+      const currentProducts = Object.values(data);
+  
+      if(!currentProducts.length) return;
+      setItems((_items)=> [...items, ...currentProducts]);
+
+      
+    },[data])
   
     useEffect(()=>{
       if(!id) return;
@@ -143,9 +156,12 @@ const handleSubmit = (e) => {
           style={{ padding: 0}}
           amount={data.length}
         />
-      )
-      }
-
+      )}
+      <div className={styles.more}>
+        <button onClick={()=>setParams({...params, offset: params.offset + params.limit})}>
+          See more
+        </button>
+      </div>
     </section>
   )
 }
