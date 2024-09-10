@@ -33,7 +33,7 @@ export const CustomeApyDate=[
   },
   {
     "id": 3,
-    "title": "Product 3",
+    "title": "Test",
     "price": 800,
     "description": "Andy shoes are designed to keeping in...",
     "category": {
