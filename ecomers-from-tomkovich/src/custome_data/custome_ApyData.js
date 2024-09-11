@@ -95,5 +95,85 @@ export const CustomeApyDate=[
       "https://discover.in.ua/uploads/illustrations/mini/%D0%9F%D0%BE%D1%81%D1%82%D0%BE%D0%BB%D0%B8-1200-670.jpg"
     ]
   },
+  {
+    "id": 7,
+    "title": "Product 7",
+    "price": 1500,
+    "description": "Andy shoes are designed to keeping in...",
+    "category": {
+      "id": 1,
+      "name": "Етнічний одяг українців",
+      "image": "https://khersonci.com.ua/images/NEWS/05.2020/b30aac0e4576cca978193539a98e4744.jpg"
+    },
+    "images": [
+      "https://28.te.ua/uploads/posts/2021-09/1631090201_venkki-20.jpg",
+      "https://28.te.ua/uploads/posts/2021-09/1631092278_obl2.jpg",
+      "https://28.te.ua/uploads/posts/2021-09/1631092793_76.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Product 8",
+    "price": 1500,
+    "description": "Andy shoes are designed to keeping in...",
+    "category": {
+      "id": 1,
+      "name": "Етнічний одяг українців",
+      "image": "https://khersonci.com.ua/images/NEWS/05.2020/b30aac0e4576cca978193539a98e4744.jpg"
+    },
+    "images": [
+      "https://28.te.ua/uploads/posts/2021-09/1631092192_2.jpg",
+      "https://28.te.ua/uploads/posts/2021-09/1631091907_10882168_851316491585426_3434883544470569985_n.jpg",
+      "https://28.te.ua/uploads/posts/2021-09/1631091798_10868136_851316484918760_8943138116971658073_n.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Product 9",
+    "price": 1500,
+    "description": "Andy shoes are designed to keeping in...",
+    "category": {
+      "id": 1,
+      "name": "Етнічний одяг українців",
+      "image": "https://khersonci.com.ua/images/NEWS/05.2020/b30aac0e4576cca978193539a98e4744.jpg"
+    },
+    "images": [
+      "https://rutashik.com/wp-content/uploads/2023/03/mens.jpg",
+      "https://ukrglamour.com.ua/image/cache/catalog/man/mansoro4ki/ukr-1311-2-630x945.jpg",
+      "https://ukrglamour.com.ua/image/cache/catalog/man/mansoro4ki/%20ukrn-1312-10-630x945.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Product 10",
+    "price": 1500,
+    "description": "Andy shoes are designed to keeping in...",
+    "category": {
+      "id": 1,
+      "name": "Етнічний одяг українців",
+      "image": "https://khersonci.com.ua/images/NEWS/05.2020/b30aac0e4576cca978193539a98e4744.jpg"
+    },
+    "images": [
+      "https://ukrglamour.com.ua/image/cache/catalog/man/mansoro4ki/UKR-1307-630x945.jpg",
+      "https://content1.rozetka.com.ua/goods/images/big_tile/395088191.jpg",
+      "https://nosisvoe.com.ua/wp-content/uploads/2023/02/8605-015-22-100922-5-1321575.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Product 11",
+    "price": 1500,
+    "description": "Andy shoes are designed to keeping in...",
+    "category": {
+      "id": 1,
+      "name": "Етнічний одяг українців",
+      "image": "https://khersonci.com.ua/images/NEWS/05.2020/b30aac0e4576cca978193539a98e4744.jpg"
+    },
+    "images": [
+      "https://nosisvoe.com.ua/wp-content/uploads/2023/05/8606-015-22-060523-1.jpg",
+      "https://nosisvoe.com.ua/wp-content/uploads/2024/08/8606-015-22-2-13082024-1.jpg",
+      "https://nosisvoe.com.ua/wp-content/uploads/2024/08/8606-015-22-1-13082024-1.jpg"
+    ]
+  },
   // ...
 ]

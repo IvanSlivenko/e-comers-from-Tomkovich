@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { CustomeApyDate } from '../../custome_data/custome_ApyData.js'
 import { custome_categories } from '../../custome_data/custome_categories.js'
 import styles from "../../styles/Category.module.css"
@@ -23,30 +23,72 @@ const Category = ({ title, style={} }) => {
     ...defaultValues,
   };
 
+  const defaultDataLength ={
+    currentdataLength: 5,
+    step: 5,
+  }
+
   
+  const [isEnd, setEnd] = useState(false);
   const [cat, setCat] = useState('');
-  const [ items, setItems] = useState([]);
+  const [items, setItems] = useState([]);
   const [values, setValues] = useState(defaultValues);
   const [params, setParams] = useState(defaultParams);
   const [data, setData] = useState([]);
+  const [dataLength, setDataLength] = useState(defaultDataLength)
 
-    useEffect(()=>{
-      if(isLoading || !data.length) return;
-      const currentProducts = Object.values(data);
+ 
+    
+  useEffect(()=>{
+    if(!id) return;
+
+    setValues(defaultValues);
+    // setItems([]);
+    setEnd(false);
+    
+    setParams({ ...defaultParams, categoryId: id});
+    setDataLength({ ...dataLength, currentdataLength: 5 })
+
+  },[id])
+
+  // Логування стану isEnd, коли він змінюється
+useEffect(() => {
+  console.log(isEnd, '---isEnd');
+}, [isEnd]);
+
+
+useEffect(() => {
+  console.log(data.length, '---data.length');
+  console.log(dataLength.currentdataLength, '---dataLength.currentdataLength');
+
+  if (dataLength.currentdataLength < data.length) {
+    setEnd(false); // Оновлюємо стан на "не кінець"
+  } else {
+    setEnd(true);  // Оновлюємо стан на "кінець"
+  }
+}, [dataLength]); // Виклик залежить від dataLength
   
-      if(!currentProducts.length) return;
-      setItems((_items)=> [...items, ...currentProducts]);
+    
+  useEffect(() => {
+    if (isLoading) return;
 
-      
-    },[data])
+    
+    if (!data.length){
+      setEnd(true); // Оновлюємо стан на "кінець"
+      return;
+    }
+
   
-    useEffect(()=>{
-      if(!id) return;
+    const currentProducts = Object.values(data);
+  
+    if (!currentProducts.length) return;
+    
+  
+    // Оновлюємо масив items
+    setItems((_Items) => [..._Items, ...currentProducts]);
 
-
-      setParams({ ...defaultParams, categoryId: id})
-
-    },[id])
+  
+  }, [data]);
 
 
 
@@ -59,11 +101,15 @@ const Category = ({ title, style={} }) => {
       const matchesPriceMin = price >= parseInt(params.price_min, 10) || !params.price_min;
       const matchesPriceMax = price <= parseInt(params.price_max, 10) || !params.price_max;
 
+      // const matchesPriceMin = !params.price_min || price >= parseInt(params.price_min, 10);
+      // const matchesPriceMax = !params.price_max || price <= parseInt(params.price_max, 10);
+
       return matchesCategory && matchesTitle && matchesPriceMin && matchesPriceMax;
     });
     
     setData(filteredData);
   }, [params]); // Залежимо від зміни params
+
 
   useEffect(() => {
     const currentCategory = custome_categories.filter(({ id }) => 
@@ -86,15 +132,16 @@ const handleChange = ({ target: { value, name } }) => {
 // Обробка форми
 const handleSubmit = (e) => {
   e.preventDefault();
+  setItems([])
+  setEnd(false )
 
   // Оновлюємо параметри для фільтрації
-  setParams({ ...params, ...values });
-
+  setParams({ ...defaultParams, ...values });
 };
 
    
-  const isLoading = false
-  const isSuccess = true
+const isLoading = false
+const isSuccess = true
 
 
   return (
@@ -142,7 +189,8 @@ const handleSubmit = (e) => {
           <div className="preloader"> Loading ... </div>
         )
       :
-      !isSuccess || !data.length ? (
+      // !isSuccess || !data.length ? (
+        !data.length ? (
         <div className={styles.back}>
           <span> Результати відсутні</span>
           <button> Reset </button>
@@ -154,14 +202,21 @@ const handleSubmit = (e) => {
           title="" 
           productsCustome={data} 
           style={{ padding: 0}}
-          amount={data.length}
+          amount={dataLength.currentdataLength}
         />
+        
       )}
-      <div className={styles.more}>
-        <button onClick={()=>setParams({...params, offset: params.offset + params.limit})}>
-          See more
-        </button>
-      </div>
+       {!isEnd && (
+        <div className={styles.more}>        
+                  <button onClick={()=>
+                                      //  setParams({ ...params, offset: params.offset + params.limit })
+                                      setDataLength({ ...dataLength, currentdataLength: dataLength.currentdataLength + dataLength.step })
+                                      }
+                                      >
+                      See more
+                  </button>
+                </div>
+              )}
     </section>
   )
 }
